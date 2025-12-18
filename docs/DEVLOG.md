@@ -25,7 +25,19 @@
 5.  **Sections:** Completed Hero, About (Bento), Experience, Projects, Certifications (with Modal), and Contact.
 6.  **Styles:** Applied the "Dark/Slate" theme with Sky Blue and Emerald accents.
 
+## [Phase 3] The "Awwwards" Polish
+**Date:** Day 5-6
+**Status:** Implemented
+
+**Accomplished:**
+1.  **Scroll Animations:** Created reusable `FadeIn` component using `framer-motion` to cascade content as it enters the viewport. Applied to all major sections.
+2.  **Spotlight Effect:** Developed `SpotlightCard` component to track mouse movement and create a dynamic radial gradient glow on card borders. Applied to About, Projects, and Certifications.
+3.  **Visual Refinements:**
+    *   Enhanced Progress Bar visibility with gradient and glow effect.
+    *   Ensured consistent staggering of animations across the application.
+    *   Refined hover states for interactive elements.
+
 **Next Steps:**
-- Refine mobile responsiveness for the Canvas graph.
-- Add entry animations for sections coming into view.
-- Final SEO and Performance checks.
+- Finalize mobile responsiveness tweaks.
+- Conduct performance audit (Lighthouse).
+- Prepare for deployment.

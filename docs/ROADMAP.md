@@ -37,15 +37,16 @@ This roadmap outlines the transformation of your resume into a high-impact, "Aww
     *   **Challenge:** You have *many* certifications.
     *   **Solution:** A preview grid for top certifications + a detailed Modal for the full list.
 
-## Phase 3: The "Awwwards" Polish (Days 5-6) [IN PROGRESS]
+## Phase 3: The "Awwwards" Polish [COMPLETED]
 *Goal: Add the "Wow" factor.*
 
-1.  **Micro-Interactions:**
+1.  **Micro-Interactions:** [DONE]
     *   **Graph Physics:** Draggable nodes in the Skills section.
+    *   **Spotlight Cards:** Mouse-tracking gradient borders on project and about cards.
     *   **Smooth Scroll:** Custom navigation logic with offset calculation.
-2.  **Scroll Animations:**
-    *   Use `framer-motion` `whileInView` props to make text fade in and slide up as the user scrolls down.
-3.  **Responsive Design:**
+2.  **Scroll Animations:** [DONE]
+    *   Used `framer-motion` `whileInView` props to make text fade in and slide up as the user scrolls down.
+3.  **Responsive Design:** [DONE]
     *   Ensure the "Bento Grid" collapses gracefully into a stack on mobile.
 
 ## Phase 4: Deployment & Review (Day 7)

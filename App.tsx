@@ -22,7 +22,7 @@ function App() {
     <div className="min-h-screen bg-background text-text selection:bg-primary/20 overflow-x-hidden">
       {/* Top Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-primary origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-cyan-400 to-secondary origin-left z-[60] shadow-[0_2px_15px_rgba(56,189,248,0.5)]"
         style={{ scaleX }}
       />
 

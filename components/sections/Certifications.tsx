@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Award, ShieldCheck, Hash, ChevronDown, X } from "lucide-react";
 import { resumeData } from "../../data/resume";
+import { FadeIn } from "../ui/FadeIn";
+import { SpotlightCard } from "../ui/SpotlightCard";
 
 export const Certifications = () => {
   const [isCertModalOpen, setIsCertModalOpen] = useState(false);
@@ -9,60 +11,63 @@ export const Certifications = () => {
   return (
     <>
       <section id="certifications" className="mb-32">
-        <div className="flex items-center gap-4 mb-10">
-           <div className="w-8 h-[1px] bg-primary"></div>
-           <span className="text-primary font-mono text-sm uppercase tracking-widest">Credentials</span>
-        </div>
+        <FadeIn>
+          <div className="flex items-center gap-4 mb-10">
+             <div className="w-8 h-[1px] bg-primary"></div>
+             <span className="text-primary font-mono text-sm uppercase tracking-widest">Credentials</span>
+          </div>
+        </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {resumeData.certifications.slice(0, 5).map((cert, idx) => (
-            <div 
-              key={cert.id} 
-              className="group relative bg-surface/20 backdrop-blur-sm border border-white/5 p-6 rounded-xl hover:bg-surface/40 hover:border-primary/30 transition-all duration-300 flex flex-col justify-between overflow-hidden min-h-[160px]"
-            >
-               {/* Decorative Background Element */}
-               <div className="absolute right-0 top-0 p-3 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <Award size={80} strokeWidth={1} />
-               </div>
-               
-               {/* Tech Accents */}
-               <div className="absolute top-0 right-0 w-12 h-[1px] bg-gradient-to-l from-white/20 to-transparent"></div>
-               <div className="absolute bottom-0 left-0 w-12 h-[1px] bg-gradient-to-r from-white/20 to-transparent"></div>
+            <FadeIn key={cert.id} delay={idx * 0.1}>
+                <SpotlightCard className="group p-6 flex flex-col justify-between overflow-hidden min-h-[160px]">
+                   {/* Decorative Background Element */}
+                   <div className="absolute right-0 top-0 p-3 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+                      <Award size={80} strokeWidth={1} />
+                   </div>
+                   
+                   {/* Tech Accents */}
+                   <div className="absolute top-0 right-0 w-12 h-[1px] bg-gradient-to-l from-white/20 to-transparent"></div>
+                   <div className="absolute bottom-0 left-0 w-12 h-[1px] bg-gradient-to-r from-white/20 to-transparent"></div>
 
-               <div className="relative z-10 h-full flex flex-col">
-                  <div className="flex justify-between items-start mb-4">
-                     <span className="text-[10px] font-mono text-primary bg-primary/10 px-2 py-1 rounded border border-primary/20">
-                        {cert.date}
-                     </span>
-                     <ShieldCheck className="text-muted/20 group-hover:text-primary transition-colors" size={18} />
-                  </div>
+                   <div className="relative z-10 h-full flex flex-col">
+                      <div className="flex justify-between items-start mb-4">
+                         <span className="text-[10px] font-mono text-primary bg-primary/10 px-2 py-1 rounded border border-primary/20">
+                            {cert.date}
+                         </span>
+                         <ShieldCheck className="text-muted/20 group-hover:text-primary transition-colors" size={18} />
+                      </div>
 
-                  <h4 className="text-base font-bold text-text mb-2 group-hover:text-primary transition-colors pr-4 flex-grow">
-                    {cert.name}
-                  </h4>
-                  
-                  <div className="flex items-center gap-2 mt-2 pt-3 border-t border-white/5">
-                     <div className="w-4 h-4 rounded-full bg-white/5 flex items-center justify-center text-[10px] text-muted font-mono">
-                        <Hash size={10} />
-                     </div>
-                     <p className="text-xs text-muted font-mono truncate">
-                       {cert.issuer}
-                     </p>
-                  </div>
-               </div>
-            </div>
+                      <h4 className="text-base font-bold text-text mb-2 group-hover:text-primary transition-colors pr-4 flex-grow">
+                        {cert.name}
+                      </h4>
+                      
+                      <div className="flex items-center gap-2 mt-2 pt-3 border-t border-white/5">
+                         <div className="w-4 h-4 rounded-full bg-white/5 flex items-center justify-center text-[10px] text-muted font-mono">
+                            <Hash size={10} />
+                         </div>
+                         <p className="text-xs text-muted font-mono truncate">
+                           {cert.issuer}
+                         </p>
+                      </div>
+                   </div>
+                </SpotlightCard>
+            </FadeIn>
           ))}
           
           {/* View All Card */}
-          <button 
-            onClick={() => setIsCertModalOpen(true)}
-            className="group relative bg-surface/5 border border-dashed border-white/10 p-6 rounded-xl hover:bg-surface/20 hover:border-primary/30 transition-all duration-300 flex flex-col items-center justify-center gap-3 min-h-[160px]"
-          >
-              <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-muted group-hover:text-primary group-hover:scale-110 group-hover:bg-primary/10 transition-all">
-                 <ChevronDown size={24} />
-              </div>
-              <span className="text-sm font-mono text-muted group-hover:text-text transition-colors">View All Credentials</span>
-          </button>
+          <FadeIn delay={0.5} className="h-full">
+              <button 
+                onClick={() => setIsCertModalOpen(true)}
+                className="w-full h-full group relative bg-surface/5 border border-dashed border-white/10 p-6 rounded-2xl hover:bg-surface/20 hover:border-primary/30 transition-all duration-300 flex flex-col items-center justify-center gap-3 min-h-[160px]"
+              >
+                  <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-muted group-hover:text-primary group-hover:scale-110 group-hover:bg-primary/10 transition-all">
+                     <ChevronDown size={24} />
+                  </div>
+                  <span className="text-sm font-mono text-muted group-hover:text-text transition-colors">View All Credentials</span>
+              </button>
+          </FadeIn>
         </div>
       </section>
 

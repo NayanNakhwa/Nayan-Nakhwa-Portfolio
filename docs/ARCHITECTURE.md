@@ -17,7 +17,7 @@ We will treat the current directory as project root.
 ```text
 /
 ├── components/
-│   ├── ui/                 # Reusable atoms (SkillGraph, etc.)
+│   ├── ui/                 # Reusable atoms (SkillGraph, FadeIn, SpotlightCard)
 │   ├── layout/             # Navbar, Footer
 │   └── sections/           # Major homepage sections
 │       ├── Hero.tsx
@@ -54,6 +54,14 @@ Instead of a static list, we implemented a physics-simulation engine:
 ### D. Certification Modal
 *   **Preview:** Displays the top 5 certifications in a grid.
 *   **Modal:** A "View All" action triggers a `framer-motion` overlay to show the complete list without cluttering the main page.
+
+### E. Spotlight Card (Micro-Interaction)
+*   **Concept:** A reusable wrapper that adds a high-end feel.
+*   **Tech:** Uses mouse coordinate tracking to update a radial gradient position, creating a "flashlight" effect on the card borders and background.
+
+### F. Scroll Animations
+*   **Implementation:** A `FadeIn` wrapper component using Framer Motion's `whileInView` hook.
+*   **Behavior:** Elements slide up and fade in as they enter the viewport, with staggered delays for lists/grids.
 
 ## 4. State Management
 *   **Local State:** `useState` for UI toggles (Cert Modal).
