@@ -9,6 +9,7 @@ This is a high-performance, interactive portfolio website engineered to showcase
 *   **Runtime/Build:** React 18 + Vite (TypeScript)
 *   **Styling:** Tailwind CSS (Utility-first)
 *   **Animation:** Framer Motion (Orchestration & Gestures)
+*   **Graphics:** HTML5 Canvas (Custom Physics Engine for Skills)
 *   **Icons:** Lucide React
 *   **Linting:** ESLint + Prettier
 
@@ -28,5 +29,10 @@ This is a high-performance, interactive portfolio website engineered to showcase
     ```
 
 ## 📂 Project Status
-Current Phase: **Planning & Architecture**
+Current Phase: **MVP Implemented / Polishing**
+The core structure is complete. We have successfully transformed the static resume into an interactive application.
+*   **Key Feature:** Custom Force-Directed Graph for Skills.
+*   **Key Feature:** Bento-grid layouts for Summary.
+*   **Key Feature:** Smooth scrolling navigation.
+
 See `ROADMAP.md` for the development schedule.

@@ -7,17 +7,18 @@ To achieve a modern, performant, and type-safe application:
 *   **Language:** TypeScript (Strict mode). *Why? It proves your coding discipline to recruiters.*
 *   **Styling:** Tailwind CSS. *Why? Rapid development and easy implementation of complex layouts.*
 *   **Animation Engine:** Framer Motion. *Why? Industry standard for complex React animations.*
+*   **Graphics:** HTML5 Canvas API. *Why? High-performance rendering for the Skills Graph.*
 *   **Icons:** Lucide-React (Clean, technical aesthetic).
 *   **Fonts:** `Inter` (UI) + `JetBrains Mono` (Code/Technical accents).
 
 ## 2. Directory Structure
-We will treat the root as `src/` conceptually.
+We will treat the current directory as project root.
 
 ```text
 /
 ├── components/
-│   ├── ui/                 # Reusable atoms (Buttons, Cards, Inputs)
-│   ├── layout/             # Navbar, Footer, Container
+│   ├── ui/                 # Reusable atoms (SkillGraph, etc.)
+│   ├── layout/             # Navbar, Footer
 │   └── sections/           # Major homepage sections
 │       ├── Hero.tsx
 │       ├── Experience.tsx
@@ -25,11 +26,8 @@ We will treat the root as `src/` conceptually.
 │       ├── Skills.tsx
 │       ├── Certifications.tsx
 │       └── Contact.tsx
-├── hooks/
-│   ├── useScrollProgress.ts  # For scroll bar animations
-│   └── useMousePosition.ts   # For custom cursor logic
 ├── data/
-│   └── resumeData.ts       # All text content from your PDF extracted here
+│   └── resume.ts           # All text content from your PDF extracted here
 ├── types.ts                # TypeScript interfaces for Resume data
 ├── App.tsx                 # Main entry, composition of sections
 └── index.css               # Tailwind directives & custom font imports
@@ -37,23 +35,26 @@ We will treat the root as `src/` conceptually.
 
 ## 3. Key Component Designs
 
-### A. The "Bento" Layout (Skills & About)
-We will use CSS Grid via Tailwind to create a modular layout.
+### A. The "Bento" Layout (About)
+We use CSS Grid via Tailwind to create a modular layout.
 *   **Large Box:** Summary/About.
-*   **Medium Box:** Core Tech Stack (Python, JS).
+*   **Medium Box:** Core Tech Stack.
 *   **Small Box:** Stats (3+ Years).
-*   **Wide Box:** Domains (E-commerce, IoT).
 
-### B. Experience Accordion
-Instead of a wall of text for your Globalstep role:
+### B. Skills Ecosystem (Force-Directed Graph)
+Instead of a static list, we implemented a physics-simulation engine:
+*   **Canvas API:** Renders nodes (Skills) and edges (Categories).
+*   **Physics:** Nodes have repulsion forces (don't overlap) and spring forces (stay connected to parent).
+*   **Interactivity:** Users can drag nodes to rearrange the graph, "Obsidian-style".
+
+### C. Experience Timeline
 *   **Header:** Role + Date (Always visible).
-*   **Body:** The specific achievements (450+ bugs, WooCommerce) hidden inside an accordion that animates open on click or hover. This keeps the UI clean.
+*   **Body:** Vertical line visualization with distinct markers for each role.
 
-### C. Certification Marquee
-*   Since you have ~15 certifications, listing them vertically takes too much space.
-*   We will build a `Marquee` component that loops the certification providers (Google, AWS, Coursera logos) continuously.
+### D. Certification Modal
+*   **Preview:** Displays the top 5 certifications in a grid.
+*   **Modal:** A "View All" action triggers a `framer-motion` overlay to show the complete list without cluttering the main page.
 
 ## 4. State Management
-*   **Local State:** `useState` for simple UI toggles (menu open/close, accordion).
-*   **Context:** Not needed for MVP.
-*   **Ref:** `useRef` heavily used for animation triggers.
+*   **Local State:** `useState` for UI toggles (Cert Modal).
+*   **Refs:** `useRef` heavily used for Canvas manipulation and animation loops in the Skill Graph.
